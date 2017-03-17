@@ -1,9 +1,9 @@
 {
-  "name": "judo-heroes",
+  "name": "website",
   "version": "1.0.0",
-  "description": "Simple application to showcase how to achieve universal rendering and routing with React and Express.",
+  "description": "",
   "main": "src/server.js",
-  "repository": "git@github.com:lmammino/judo-heroes.git",
+  "repository": "",
   "scripts": {
     "start": "cross-env NODE_ENV=production node_modules/.bin/babel-node --presets react,es2015 src/server.js",
     "start-dev": "npm run start-dev-hmr",
