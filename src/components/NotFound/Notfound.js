@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import './Notfound.css';
-
 
 class Notfound extends Component {
   render() {
@@ -8,7 +6,7 @@ class Notfound extends Component {
       <div className="container">
         <div className="row">
             <div className="col-md-12">
-                <div className="error-template">
+                <div style={{padding: "40px 15px",textAlign: "center"}}>
                     <h1>
                         Oops!</h1>
                     <h2>
