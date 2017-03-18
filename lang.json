@@ -1,0 +1,71 @@
+{
+  "en": {
+    "header":{
+      "iphonerepair":"IPhone Repair",
+      "ipadrepair":"IPad Repair",
+      "pricing":"Pricing",
+      "aboutus":"About Us"
+    },
+    "ad":{
+      "appointment":"Make Appointment",
+      "vipappoinment":"Member Appointment"
+    },
+    "footer":{
+      "freeparking":"Free Parking",
+      "findusonyelp":"Find Us on Yelp",
+      "map":"Map",
+      "detail":"View Detail"
+    },
+    "switch":{
+      "lang":"简体中文",
+      "target":"ch"
+    },
+    "pricing":{
+      "product":"Product",
+      "description":"Description",
+      "price":"Price",
+      "warranty":"Warranty"
+    },
+    "product":{
+      "ip7cr":"Screen Front Glass Replacement(Screen Cracked, but still display and responsive to touch)",
+      "ip7chport":"Charging Port（unable to charge or connect to computer)",
+      "ip7batt":"Battery Replacement(battery draining to quickly)",
+      "ip7pb":"Power/Lock button"
+    }
+
+  },
+  "ch":{
+    "header":{
+      "iphonerepair":"IPhone 修理",
+      "ipadrepair":"IPad 修理",
+      "pricing":"报价",
+      "aboutus":"关于我们"
+    },
+    "ad":{
+      "appointment":"预约",
+      "vipappoinment":"会员预约"
+    },
+    "footer":{
+      "freeparking":"免费拍车",
+      "findusonyelp":"在Yelp找我们",
+      "map":"地图",
+      "detail":"查看详解"
+    },
+    "switch":{
+      "lang":"English",
+      "target":"en"
+    },
+    "pricing":{
+      "product":"商品",
+      "description":"详解",
+      "price":"价格",
+      "warranty":"保修"
+    },
+    "product":{
+      "ip7cr":"前屏幕更换（裂屏，但可以继续显示和触屏）",
+      "ip7chport":"充电口（无法充电或连接到电脑)",
+      "ip7batt":"更换电池（电量消耗太快）",
+      "ip7pb":"Power/Lock button"
+    }
+  }
+}
