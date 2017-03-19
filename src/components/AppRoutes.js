@@ -14,7 +14,7 @@ const store = createStore(content);
 export default class AppRoutes extends React.Component {
   render() {
     return (
-      <Provider {... { store }}>
+      <Provider store={store}>
         <Router history={browserHistory} routes={routes} onUpdate={() => window.scrollTo(0, 0)}/>
       </Provider>
     );

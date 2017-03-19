@@ -5,7 +5,7 @@ import { Route, IndexRoute } from 'react-router'
 import Layout from './components/Layout';
 import IndexPage from './components/IndexPage';
 import AthletePage from './components/AthletePage';
-import Notfound from './components/Notfound/Notfound';
+import Notfound from './components/Notfound';
 import Pricing from './components/Pricing/Pricing'
 
 const routes = (

@@ -13,6 +13,7 @@ class Layout extends React.Component {
   }
 
   render() {
+    console.log("***",this.props, this.state)
     let switchLanguage = this.props.switchLanguage;
     let content = this.props.content;
     return (
