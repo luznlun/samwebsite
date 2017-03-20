@@ -1,5 +1,5 @@
 const action_types = require('./action_types');
-import json from 'json!../../lang.json';
+import json from '../../lang.json';
 
 
 const initialState = {

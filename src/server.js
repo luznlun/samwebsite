@@ -9,6 +9,11 @@ import { match, RouterContext } from 'react-router';
 import routes from './routes';
 import NotFoundPage from './components/NotFoundPage';
 
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+const content = require('./Action/reducer');
+const store = createStore(content);
+
 // initialize the server and configure support for ejs templates
 const app = new Express();
 const server = new Server(app);
@@ -38,7 +43,11 @@ app.get('*', (req, res) => {
       let markup;
       if (renderProps) {
         // if the current route matched we have renderProps
-        markup = renderToString(<RouterContext {...renderProps}/>);
+        markup = renderToString(
+          <Provider store={store}>
+            <RouterContext {...renderProps}/>
+          </Provider>
+        );
       } else {
         // otherwise we can render a 404 page
         markup = renderToString(<NotFoundPage/>);

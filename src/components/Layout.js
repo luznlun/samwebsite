@@ -9,11 +9,11 @@ import {connect} from 'react-redux';
 
 class Layout extends React.Component {
   handleSwitchLang(targetLang) {
+    console.log("****switch to: ",targetLang, this.props.switchLanguage)
     this.props.switchLanguage(targetLang);
   }
 
   render() {
-    console.log("***",this.props, this.state)
     let switchLanguage = this.props.switchLanguage;
     let content = this.props.content;
     return (

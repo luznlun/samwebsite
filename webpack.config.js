@@ -29,7 +29,9 @@ module.exports = {
         cacheDirectory: 'babel_cache',
         presets: debug ? ['react', 'es2015', 'react-hmre'] : ['react', 'es2015']
       }
-    }]
+    },
+    {test: /\.json$/, loader: "json"}
+    ]
   },
   plugins: debug ? [] : [
     new webpack.DefinePlugin({
