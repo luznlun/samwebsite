@@ -12,7 +12,6 @@ import NotFoundPage from './components/NotFoundPage';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 const content = require('./Action/reducer');
-const store = createStore(content);
 
 // initialize the server and configure support for ejs templates
 const app = new Express();
@@ -28,6 +27,7 @@ app.get('*', (req, res) => {
   match(
     { routes, location: req.url },
     (err, redirectLocation, renderProps) => {
+      const store = createStore(content);
 
       // in case of error display the error message
       if (err) {
@@ -53,12 +53,59 @@ app.get('*', (req, res) => {
         markup = renderToString(<NotFoundPage/>);
         res.status(404);
       }
+      const preloadedState = store.getState()
+      res.send(renderFullPage(markup, preloadedState))
 
       // render the index template with the embedded React markup
-      return res.render('index', { markup });
+      // return res.render('index', { markup });
     }
   );
 });
+
+function renderFullPage(html, preloadedState) {
+  return `
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="shortcut icon" href="/img/favicon.ico">
+      <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+      <title>Chris</title>
+
+      <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+      <meta name="viewport" content="width=device-width" />
+
+      <link href="bootstrap3/css/bootstrap.css" rel="stylesheet" />
+      <link href="assets/css/gsdk.css" rel="stylesheet" />
+      <link href="assets/css/demo.css" rel="stylesheet" />
+
+      <!--     Font Awesome     -->
+      <link href="bootstrap3/css/font-awesome.css" rel="stylesheet"/>
+      <link href='https://fonts.googleapis.com/css?family=Grand+Hotel' rel='stylesheet' type='text/css'/>
+    </head>
+    <body>
+      <div id="main">${html}</div>
+        <script>
+          window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(/</g, '\\u003c')}
+        </script>
+      <script src="../static/js/bundle.js"></script>
+      <script src="jquery/jquery-1.10.2.js" type="text/javascript"></script>
+      <script src="assets/js/jquery-ui-1.10.4.custom.min.js" type="text/javascript"></script>
+
+      <script src="bootstrap3/js/bootstrap.js" type="text/javascript"></script>
+      <script src="assets/js/gsdk-checkbox.js"></script>
+      <script src="assets/js/gsdk-radio.js"></script>
+      <script src="assets/js/gsdk-bootstrapswitch.js"></script>
+      <script src="assets/js/get-shit-done.js"></script>
+      <script src="assets/js/custom.js"></script>
+    </body>
+  </html>
+
+    `
+  }
+
 
 // start the server
 const port = process.env.PORT || 3000;

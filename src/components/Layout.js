@@ -8,12 +8,8 @@ import * as actions from '../Action/actions';
 import {connect} from 'react-redux';
 
 class Layout extends React.Component {
-  handleSwitchLang(targetLang) {
-    console.log("****switch to: ",targetLang, this.props.switchLanguage)
-    this.props.switchLanguage(targetLang);
-  }
-
   render() {
+    console.log("****",this.props);
     let switchLanguage = this.props.switchLanguage;
     let content = this.props.content;
     return (
@@ -38,7 +34,7 @@ class Layout extends React.Component {
               </ul>
               <ul className="nav navbar-nav navbar-right">
                 <li>
-                  <button className="btn btn-default btn-round" onClick={() => this.handleSwitchLang(content.switch.target)}>{content.switch.lang}</button>
+                  <button className="btn btn-default btn-round" onClick={this.props.switchLanguage(content.switch.target)}>{content.switch.lang}</button>
                 </li>
               </ul>
             </div>
