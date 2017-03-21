@@ -53,8 +53,7 @@ app.get('*', (req, res) => {
         markup = renderToString(<NotFoundPage/>);
         res.status(404);
       }
-      const preloadedState = store.getState()
-      res.send(renderFullPage(markup, preloadedState))
+      res.send(renderFullPage(markup))
 
       // render the index template with the embedded React markup
       // return res.render('index', { markup });
@@ -62,7 +61,7 @@ app.get('*', (req, res) => {
   );
 });
 
-function renderFullPage(html, preloadedState) {
+function renderFullPage(html) {
   return `
   <!DOCTYPE html>
   <html lang="en">
@@ -87,9 +86,6 @@ function renderFullPage(html, preloadedState) {
     </head>
     <body>
       <div id="main">${html}</div>
-        <script>
-          window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(/</g, '\\u003c')}
-        </script>
       <script src="../static/js/bundle.js"></script>
       <script src="jquery/jquery-1.10.2.js" type="text/javascript"></script>
       <script src="assets/js/jquery-ui-1.10.4.custom.min.js" type="text/javascript"></script>
